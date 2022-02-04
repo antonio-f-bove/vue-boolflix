@@ -6,8 +6,14 @@
       </div>
       <div class="search-bar col">
         <div class="row">
-          <input type="text" class="col" placeholder="Search">
-          <div class="search-button col">Search</div>
+          <input
+            v-model="searchInput"
+            @keyup.enter="sendSearchResult"
+            type="text"
+            class="col"
+            placeholder="Search"
+          />
+          <div @click="sendSearchResult" class="search-button col">Search</div>
         </div>
       </div>
     </div>
@@ -16,12 +22,21 @@
 
 <script>
 export default {
-  
-}
+  data() {
+    return {
+      searchInput: "",
+    };
+  },
+  methods: {
+    sendSearchResult() {
+      this.$emit("search", this.searchInput);
+      this.searchInput = "";
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 .row {
   justify-content: space-between;
 }

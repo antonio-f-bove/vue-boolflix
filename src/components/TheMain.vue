@@ -1,6 +1,10 @@
 <template>
   <main>
-    <movie-card />
+    <div class="container">
+      <div class="row">
+        <movie-card v-for="movie in movies" :key="movie.id" :movie="movie" class="col" />
+      </div>
+    </div>
 
   </main>
 </template>
@@ -11,6 +15,9 @@ import MovieCard from './MovieCard.vue'
 export default {
   components: {
     MovieCard,
+  },
+  props: {
+    movies: Array,
   }
 }
 </script>
