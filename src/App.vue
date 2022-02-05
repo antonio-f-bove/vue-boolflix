@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <the-header @search="searchDatabase"/>
-    <the-main :movies="searchResults"/>
+    <the-main :movies="movieResults" :shows="tvResults"/>
   </div>
 </template>
 
@@ -18,22 +18,34 @@ export default {
   },
   data() {
     return {
-      searchResults:[],
-
+      results: [],
+    }
+  },
+  computed: {
+    tvResults () {
+      let tvResults = this.results.filter((element) => {
+        return element.media_type === 'tv'
+      });
+      return tvResults
+    },
+    movieResults () {
+      let movieResults = this.results.filter((element) => {
+        return element.media_type === 'movie'
+      });
+      return movieResults
     }
   },
   methods: {
     searchDatabase (query) {
-      //API call
-      const apiTemplate = `https://api.themoviedb.org/3/search/movie?query=${query}&language=it&api_key=1907f9ddd62b6188f8c04f21ba63f5ab`;
+      // multi-request API call
+      const apiTemplate = `https://api.themoviedb.org/3/search/multi?query=${query}&language=it&api_key=1907f9ddd62b6188f8c04f21ba63f5ab`;
 
       axios
         .get(apiTemplate)
         .then((result) => {
-          this.searchResults = result.data.results;
-          console.log()
+          this.results = result.data.results;
         });
-    }
+    },
   }
 };
 </script>

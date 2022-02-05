@@ -42,8 +42,10 @@ export default {
       */
       if (langIso === 'en') {
         // uso movie.id per chieder piu info all'API -> paesi di produzione
+        const movieApiTemplate = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=1907f9ddd62b6188f8c04f21ba63f5ab`;
+        
         axios
-          .get(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=1907f9ddd62b6188f8c04f21ba63f5ab`)
+          .get(movieApiTemplate)
           .then((result) => {
             this.productionCountries = result.data.production_countries
           });
