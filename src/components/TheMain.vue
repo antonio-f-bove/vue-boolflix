@@ -2,7 +2,7 @@
   <main>
     <div class="container">
       <div class="row">
-        <movie-card v-for="movie in movies" :key="movie.id" :movie="movie" class="col" />
+        <movie-card v-for="movie in movies" :key="movie.id" :movie="movie" class="col-2" />
       </div>
     </div>
 
