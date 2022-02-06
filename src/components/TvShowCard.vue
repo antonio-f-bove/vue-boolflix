@@ -7,7 +7,7 @@
       <div><span>Titolo: </span>{{ show.name }}</div>
       <div><span>Titolo originale: </span>{{ show.original_name }}</div>
       <div>
-        <span>Voto: </span><span>{{ show.vote_average }}</span>
+        <span>Voto: </span><stars-rating :rate="show.vote_average" />
       </div>
       <div>
         <span>Lingua: </span>{{ show.original_language }}
@@ -20,8 +20,12 @@
 </template>
 
 <script>
-// import axios from 'axios';
+import StarsRating from './StarsRating.vue'
+
 export default {
+  components: {
+    StarsRating,
+  },
   props: {
     show: Object,
   },

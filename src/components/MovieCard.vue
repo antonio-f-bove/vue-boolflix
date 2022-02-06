@@ -7,7 +7,7 @@
       <div><span>Titolo: </span>{{ movie.title }}</div>
       <div><span>Titolo originale: </span>{{ movie.original_title }}</div>
       <div>
-        <span>Voto: </span><span>{{ movie.vote_average }}</span>
+        <span>Voto: </span><stars-rating :rate="movie.vote_average" />
       </div>
       <div>
         <span>Lingua: </span>{{ movie.original_language }}
@@ -21,7 +21,12 @@
 
 <script>
 import axios from 'axios';
+import StarsRating from './StarsRating.vue'
+
 export default {
+  components: {
+    StarsRating,
+  },
   props: {
     movie: Object,
   },

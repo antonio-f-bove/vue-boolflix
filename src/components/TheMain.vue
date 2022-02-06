@@ -23,7 +23,7 @@ import TvShowCard from './TvShowCard.vue'
 export default {
   components: {
     MovieCard,
-    TvShowCard
+    TvShowCard,
   },
   props: {
     movies: Array,
