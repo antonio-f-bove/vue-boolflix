@@ -1,7 +1,7 @@
 <template>
   <div class="card text-white bg-dark">
-    <div class="poster d-none">
-      <img src="" alt="" />
+    <div class="poster">
+      <img :src="getPoster(show)" class="img-fluid" />
     </div>
     <div class="info card-body">
       <div><span>Titolo: </span>{{ show.name }}</div>
@@ -33,21 +33,20 @@ export default {
   methods: {
     getFlag (country) {
       return `http://www.geognos.com/api/en/countries/flag/${country}.json`
+    },
+    getPoster (show) {
+      if (show.poster_path !== null) {
+        return `https://image.tmdb.org/t/p/w342/${show.poster_path}`
+      } else {
+        // TODO! non funziona
+        return '../assets/no-poster.png'
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.info {
-  span {
-    font-weight: bold;
-  }
+@import '../style/card-style.scss';
 
-  span.flag {
-    display: inline-block;
-    height: 1rem;
-    width: 1.33333333rem;
-  }
-}
 </style>

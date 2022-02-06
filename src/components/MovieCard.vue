@@ -1,7 +1,7 @@
 <template>
   <div class="card text-white bg-dark">
-    <div class="poster d-none">
-      <img src="" alt="" />
+    <div class="poster">
+      <img :src="getPoster(movie)" class="img-fluid" />
     </div>
     <div class="info card-body">
       <div><span>Titolo: </span>{{ movie.title }}</div>
@@ -66,21 +66,15 @@ export default {
       }
 
       return `http://www.geognos.com/api/en/countries/flag/${langIso.toUpperCase()}.json`
+    },
+    getPoster (movie) {
+      return `https://image.tmdb.org/t/p/w342/${movie.poster_path}`
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.info {
-  span {
-    font-weight: bold;
-  }
+@import '../style/card-style.scss';
 
-  span.flag {
-    display: inline-block;
-    height: 1rem;
-    width: 1.33333333rem;
-  }
-}
 </style>

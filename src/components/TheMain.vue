@@ -35,7 +35,10 @@ export default {
 <style lang="scss" scoped>
 
 .row.strip {
+  height: 282px;
   flex-wrap: nowrap;
+  align-items: center;
   overflow-x: scroll;
+  overflow-y: hidden;
 }
 </style>
