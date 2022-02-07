@@ -5,7 +5,9 @@
     </div>
     <div class="info card-body">
       <div><span>Titolo: </span>{{ show.name }}</div>
-      <div><span>Titolo originale: </span>{{ show.original_name }}</div>
+      <div v-if="show.original_name !== show.name">
+        <span>Titolo originale: </span>{{ show.original_name }}
+      </div>
       <div>
         <span>Voto: </span><stars-rating :rate="show.vote_average" />
       </div>
@@ -14,6 +16,7 @@
         <span class="flag">
           <img class="img-fluid" :src="getFlag(show.origin_country)" />
         </span>
+        <div class="overview" v-if="show.overview"><span>Overview: </span>{{ limitTextLength(show.overview, 150) }}</div>
       </div>
     </div>
   </div>
@@ -44,6 +47,13 @@ export default {
       } else {
         // TODO! non funziona
         return '../assets/no-poster.png'
+      }
+    },
+    limitTextLength (string, length) {
+      if (string.length > length) {
+        return string.substring(0, length) + '...'
+      } else {
+        return string
       }
     }
   }

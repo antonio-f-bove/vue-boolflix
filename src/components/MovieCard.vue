@@ -15,6 +15,7 @@
           <img class="img-fluid" :src="getFlag(movie)" />
         </span>
       </div>
+      <div class="overview">{{ limitTextLength(movie.overview, 150) }}</div>
     </div>
   </div>
 </template>
@@ -74,6 +75,13 @@ export default {
     },
     getPoster (movie) {
       return `https://image.tmdb.org/t/p/w342/${movie.poster_path}`
+    },
+    limitTextLength (string, length) {
+      if (string.length > length) {
+        return string.substring(0, length) + '...'
+      } else {
+        return string
+      }
     }
   }
 }
