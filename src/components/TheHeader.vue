@@ -42,6 +42,11 @@ export default {
 <style lang="scss" scoped>
 @import '../style/variables.scss';
 
+header {
+  height: 90px;
+  background-color: #111;
+}
+
 .row {
   justify-content: space-between;
 }
@@ -61,6 +66,7 @@ export default {
   input {
     border: 3px solid $boolflix-red;
     background-color: #333;
+    color: #ccc;
     &::placeholder {
       color: #ccc;
     }

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <the-header @search="searchDatabase"/>
+    <the-header @search="searchDatabase" class="fixed-top" />
     <the-main :movies="movieResults" :shows="tvResults"/>
   </div>
 </template>
@@ -53,8 +53,7 @@ export default {
 <style lang="scss">
 @import '~bootstrap/scss/bootstrap.scss';
 
-#app {
+body {
   background-color: #111;
-  height: 100vh;
 }
 </style>

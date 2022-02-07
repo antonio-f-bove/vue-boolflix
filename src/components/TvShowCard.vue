@@ -10,7 +10,7 @@
         <span>Voto: </span><stars-rating :rate="show.vote_average" />
       </div>
       <div>
-        <span>Lingua: </span>{{ show.original_language }}
+        <span>Lingua: </span>
         <span class="flag">
           <img class="img-fluid" :src="getFlag(show.origin_country)" />
         </span>

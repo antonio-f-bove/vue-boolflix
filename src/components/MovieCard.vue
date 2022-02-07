@@ -10,7 +10,7 @@
         <span>Voto: </span><stars-rating :rate="movie.vote_average" />
       </div>
       <div>
-        <span>Lingua: </span>{{ movie.original_language }}
+        <span>Lingua: </span>
         <span class="flag">
           <img class="img-fluid" :src="getFlag(movie)" />
         </span>
